@@ -1,0 +1,41 @@
+# Ambientes e arquivos temporários
+.venv/
+venv/
+env/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.coverage
+
+# Dados baixados e processados (mantenha apenas os arquivos .gitkeep)
+/DryBeanDataset/
+data/raw/*
+!data/raw/.gitkeep
+data/processed/*
+!data/processed/.gitkeep
+
+# Resultados de execução
+results/models/*
+results/metrics/*
+results/plots/*
+results/logs/*
+!results/models/.gitkeep
+!results/metrics/.gitkeep
+!results/plots/.gitkeep
+!results/logs/.gitkeep
+
+# Editores e sistema operacional
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Artefatos temporários de compilação LaTeX
+*.aux
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.synctex.gz
