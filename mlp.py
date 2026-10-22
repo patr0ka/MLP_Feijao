@@ -112,7 +112,7 @@ class PerceptronMulticamadas:
             loss += 0.5 * self.l2_lambda * sum(float(np.sum(weight ** 2)) for weight in self.weights)
         return float(loss)
 
-    def retropropaga(self, y_true, cache):
+    def backpropagation(self, y_true, cache):
         """Calcula gradientes via regra da cadeia; softmax + CE usa o delta simplificado."""
         y_true = np.asarray(y_true, dtype=np.int64).reshape(-1)
         activations = cache["activations"]
@@ -165,7 +165,7 @@ class PerceptronMulticamadas:
     def treina_lote(self, X, y):
         probabilities, cache = self.propaga_para_frente(X, return_cache=True)
         loss = self.perda(y, probabilities)
-        gradients = self.retropropaga(y, cache)
+        gradients = self.backpropagation(y, cache)
         self.atualiza_parametros(gradients)
         return loss
 

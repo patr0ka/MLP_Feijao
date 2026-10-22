@@ -6,6 +6,10 @@ from pathlib import Path
 # ==================================================
 
 SEED = 42
+CAMADA_INTERMEDIARIA = [8]
+NEURONIOS_ENTRADA = 16
+NEURONIOS_SAIDA = 7
+TAXA_APRENDIZADO = 0.05
 
 DATASET_PATH = "DryBeanDataset/Dry_Bean_Dataset.xlsx"
 TARGET_COLUMN = "Class"
@@ -25,9 +29,7 @@ NORMALIZE_DATA = True
 # ARQUITETURA DA MLP
 # ==================================================
 
-NEURONIOS_ENTRADA = 16
-CAMADA_INTERMEDIARIA = [16, 8]
-NEURONIOS_SAIDA = 7
+
 
 HIDDEN_ACTIVATION = "relu"
 OUTPUT_ACTIVATION = "softmax"
@@ -38,7 +40,7 @@ OUTPUT_ACTIVATION = "softmax"
 
 EPOCAS = 100
 BATCH_SIZE = 32
-TAXA_APRENDIZADO = 0.001
+
 
 OPTIMIZER = "adam"
 LOSS_FUNCTION = "cross_entropy"

@@ -1,6 +1,6 @@
 import numpy as np
 
-from perceptron_multicamadas import PerceptronMulticamadas
+from mlp import PerceptronMulticamadas
 from treinamento import treina_modelo
 
 
@@ -16,7 +16,7 @@ def test_propagacao_perda_gradientes_e_atualizacao():
     loss = model.perda(y, probabilities)
     assert np.isfinite(loss)
 
-    gradients = model.retropropaga(y, cache)
+    gradients = model.backpropagation(y, cache)
     assert all(np.isfinite(value).all() for value in gradients["weights"])
     assert all(np.isfinite(value).all() for value in gradients["biases"])
     before = [weight.copy() for weight in model.weights]

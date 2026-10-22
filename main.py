@@ -10,7 +10,7 @@ import numpy as np
 import config
 from carrega_dataset import carrega_dataset
 from avaliacao import avalia_modelo, salva_graficos, salva_metricas
-from perceptron_multicamadas import PerceptronMulticamadas
+from mlp import PerceptronMulticamadas
 from preprocessamento import prepara_dados
 from treinamento import treina_modelo
 

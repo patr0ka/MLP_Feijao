@@ -68,7 +68,7 @@ As proporções TRAIN_SIZE, VALIDATION_SIZE e TEST_SIZE precisam somar 1. Com ST
 
 Cada amostra fornece dezesseis características à camada de entrada. As camadas intermediárias transformam esses valores e a camada de saída produz uma probabilidade para cada variedade. As ligações entre camadas adjacentes são densas: cada neurônio de uma camada se conecta a todos os neurônios da camada seguinte.
 
-A classe PerceptronMulticamadas, em perceptron_multicamadas.py, implementa as operações com NumPy. propaga_para_frente calcula as ativações e guarda os valores intermediários necessários ao treinamento. perda compara as probabilidades com os rótulos corretos usando entropia cruzada. retropropaga calcula os gradientes dos pesos e biases percorrendo as camadas de trás para frente. atualiza_parametros aplica SGD ou Adam aos gradientes. O método treina_lote reúne essas etapas para cada lote. A retropropagação calcula os gradientes; Adam ou SGD usa esses gradientes para atualizar os parâmetros.
+A classe PerceptronMulticamadas, em mlp.py, implementa as operações com NumPy. propaga_para_frente calcula as ativações e guarda os valores intermediários necessários ao treinamento. perda compara as probabilidades com os rótulos corretos usando entropia cruzada. backpropagation calcula os gradientes dos pesos e biases percorrendo as camadas de trás para frente. atualiza_parametros aplica SGD ou Adam aos gradientes. O método treina_lote reúne essas etapas para cada lote. O método backpropagation calcula os gradientes; Adam ou SGD usa esses gradientes para atualizar os parâmetros.
 
 O módulo treinamento.py embaralha as amostras no início de cada época, processa os lotes, registra perda e acurácia de treino e validação e, quando configurado, interrompe o treinamento se a validação deixar de melhorar. Ao encerrar, restaura os parâmetros da melhor época de validação.
 
@@ -88,7 +88,7 @@ A acurácia resume a proporção de previsões corretas. Precisão, recall e F1 
 O modelo salvo pode ser carregado sem novo treinamento. Prepare um CSV com uma ou mais novas amostras contendo as dezesseis características nos nomes esperados. O código seleciona e ordena as colunas conforme os metadados do modelo, aplica o scaler salvo, se usado no treinamento, e retorna as classes previstas e suas probabilidades:
 
     import pandas as pd
-    from perceptron_multicamadas import PerceptronMulticamadas
+    from mlp import PerceptronMulticamadas
 
     modelo, metadados = PerceptronMulticamadas.carrega(
         "results/models/mlp_<identificador_da_execucao>"
@@ -116,7 +116,7 @@ Eles verificam o carregamento e a validação dos dados, as dimensões e probabi
     main.py                    coordena a execução
     carrega_dataset.py          carrega e valida o arquivo de dados
     preprocessamento.py         divide, codifica e normaliza os dados
-    perceptron_multicamadas.py  implementa e salva a MLP
+    mlp.py  implementa e salva a MLP
     treinamento.py              treina em lotes e aplica parada antecipada
     avaliacao.py                calcula métricas e salva gráficos
     data/raw/                   local alternativo para o arquivo original
