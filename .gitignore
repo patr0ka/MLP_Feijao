@@ -30,6 +30,9 @@ results/logs/*
 .DS_Store
 Thumbs.db
 
+# Artigo SBC
+/artigo_sbc_feijao/
+
 # Artefatos temporários de compilação LaTeX
 *.aux
 *.bbl
